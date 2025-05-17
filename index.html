@@ -1,95 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chandler (GHC) Token</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GHC官网 | AI Health Foundation</title>
+  <style>
+    :root{
+      --bg:#0e0e0e;
+      --fg:#ffffff;
+      --accent:#29b6f6;
+      --max-w:960px;
+      --pad:3.5rem
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    body{background:var(--bg);color:var(--fg);line-height:1.6;scroll-behavior:smooth}
+    header{display:flex;align-items:center;justify-content:space-between;padding:1rem var(--pad)}
+    header img{width:48px;height:48px}
+    nav a{color:var(--fg);margin-left:1.5rem;text-decoration:none;font-size:.95rem}
+    nav a:hover{color:var(--accent)}
+    .lang-btn{background:var(--accent);border:none;color:#fff;border-radius:4px;padding:.3rem .6rem;cursor:pointer;margin-left:1.5rem}
+    section{padding:var(--pad) 1rem;max-width:var(--max-w);margin:auto;text-align:center}
+    h1,h2{margin-bottom:1rem;font-weight:600}
+    h1{font-size:2.5rem}
+    p{max-width:680px;margin:.5rem auto 1.2rem}
+    .btn{display:inline-block;background:var(--accent);color:#fff;padding:.6rem 1.4rem;border-radius:4px;text-decoration:none;margin-top:1rem}
+    /* 简单响应导航 */
+    @media(max-width:680px){
+      nav{display:none}
+      header{flex-direction:column}
+      .lang-btn{margin:1rem 0 0}
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <!-- Header -->
-  <header class="bg-white shadow">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Chandler (GHC)</h1>
-      <nav>
-        <ul class="flex space-x-6">
-          <li><a href="#home" class="hover:text-indigo-600">Home</a></li>
-          <li><a href="#about" class="hover:text-indigo-600">About</a></li>
-          <li><a href="#token" class="hover:text-indigo-600">Token</a></li>
-          <li><a href="#team" class="hover:text-indigo-600">Team</a></li>
-          <li><a href="#contact" class="hover:text-indigo-600">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+<body>
+  <!-- 顶部导航 -->
+  <header>
+    <a href="#home"><img src="logo.jpg" alt="GHC Logo" /></a>
+    <nav id="nav">
+      <a href="#home"  data-i18n="navHome">首页</a>
+      <a href="#about" data-i18n="navAbout">关于我们</a>
+      <a href="#project" data-i18n="navProject">项目介绍</a>
+      <a href="#contact" data-i18n="navContact">联系我们</a>
+    </nav>
+    <button class="lang-btn" id="switchLang">EN</button>
   </header>
 
-  <!-- Hero -->
-  <section id="home" class="bg-white py-20">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-4">Welcome to Chandler</h2>
-      <p class="text-lg text-gray-600 mb-8">Empowering health with AI-driven TRC20 token on TRON network.</p>
-      <a href="#token" class="px-8 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Learn More</a>
-    </div>
+  <!-- 首页 -->
+  <section id="home">
+    <h1 data-i18n="heroTitle">赋能健康的 GHC AI 基金</h1>
+    <p data-i18n="heroSubtitle">
+      基于 TRON 网络的 TRC20 代币，为全球健康与疾病预防的 AI 研究提供支持。
+    </p>
+    <a href="#project" class="btn" data-i18n="heroBtn">了解更多</a>
   </section>
 
   <!-- About -->
-  <section id="about" class="py-16">
-    <div class="container mx-auto px-6">
-      <h3 class="text-3xl font-semibold mb-6 text-center">About Chandler</h3>
-      <p class="max-w-2xl mx-auto text-center text-gray-700">Chandler (GHC) is a TRC20 token designed to fund AI research in global health and disease prevention. Our mission is to build a decentralized ecosystem that bridges technology and healthcare.</p>
-    </div>
+  <section id="about">
+    <h2 data-i18n="aboutTitle">关于我们</h2>
+    <p data-i18n="aboutTxt">
+      Chandler (GHC) 致力于搭建连接区块链与医疗健康的去中心化生态，为 AI 研究与公益基金会提供可持续资金。
+    </p>
   </section>
 
-  <!-- Token -->
-  <section id="token" class="bg-gray-100 py-16">
-    <div class="container mx-auto px-6 text-center">
-      <h3 class="text-3xl font-semibold mb-4">Token Details</h3>
-      <ul class="max-w-md mx-auto text-left space-y-3 text-gray-700">
-        <li><strong>Name:</strong> Chandler (GHC)</li>
-        <li><strong>Symbol:</strong> GHC</li>
-        <li><strong>Total Supply:</strong> 21,000,000</li>
-        <li><strong>Decimals:</strong> 6</li>
-        <li><strong>Contract Address:</strong> TAjPYaai21hpt6cxrAbiDcyAPwYSMXNAVq</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Team -->
-  <section id="team" class="py-16">
-    <div class="container mx-auto px-6">
-      <h3 class="text-3xl font-semibold mb-6 text-center">Our Team</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-          <img src="https://via.placeholder.com/100" alt="Founder" class="mx-auto rounded-full mb-4">
-          <h4 class="font-bold">Jane Doe</h4>
-          <p class="text-gray-600">Founder & CEO</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-          <img src="https://via.placeholder.com/100" alt="CTO" class="mx-auto rounded-full mb-4">
-          <h4 class="font-bold">John Smith</h4>
-          <p class="text-gray-600">CTO</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-          <img src="https://via.placeholder.com/100" alt="Advisor" class="mx-auto rounded-full mb-4">
-          <h4 class="font-bold">Dr. Lee</h4>
-          <p class="text-gray-600">Health Advisor</p>
-        </div>
-      </div>
-    </div>
+  <!-- Project -->
+  <section id="project">
+    <h2 data-i18n="projTitle">项目介绍</h2>
+    <p data-i18n="projTxt">
+      代币总供应 21,000,000 枚，团队与社区共同治理，透明公开。未来将推出质押、募捐与 AI 健康数据平台。
+    </p>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="bg-indigo-600 py-16 text-white">
-    <div class="container mx-auto px-6 text-center">
-      <h3 class="text-3xl font-semibold mb-4">Get in Touch</h3>
-      <p class="mb-6">Email us at <a href="mailto:chandlerguo1984@outlook.com" class="underline">chandlerguo1984@outlook.com</a></p>
-      <p>Follow us on social media for updates!</p>
-    </div>
+  <section id="contact">
+    <h2 data-i18n="contactTitle">联系我们</h2>
+    <p>
+      Telegram：<a href="https://t.me/GuoChandler1984" style="color:var(--accent)">@GuoChandler1984</a>
+    </p>
+    <p>Email：chandlerguo1984@outlook.com</p>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 py-6 text-center text-gray-400">
-    <p>&copy; 2025 Chandler (GHC). All rights reserved.</p>
-  </footer>
+<script>
+/* ====== 简易多语言切换 ====== */
+const zh = {
+  navHome:"首页",navAbout:"关于我们",navProject:"项目介绍",navContact:"联系我们",
+  heroTitle:"赋能健康的 GHC AI 基金",
+  heroSubtitle:"基于 TRON 网络的 TRC20 代币，为全球健康与疾病预防的 AI 研究提供支持。",
+  heroBtn:"了解更多",
+  aboutTitle:"关于我们",
+  aboutTxt:"Chandler (GHC) 致力于搭建连接区块链与医疗健康的去中心化生态，为 AI 研究与公益基金会提供可持续资金。",
+  projTitle:"项目介绍",
+  projTxt:"代币总供应 21,000,000 枚，团队与社区共同治理，透明公开。未来将推出质押、募捐与 AI 健康数据平台。",
+  contactTitle:"联系我们"
+}
+
+const en = {
+  navHome:"Home",navAbout:"About",navProject:"Project",navContact:"Contact",
+  heroTitle:"GHC AI Health Foundation",
+  heroSubtitle:"A TRC20 token on TRON empowering global AI research in health & disease prevention.",
+  heroBtn:"Learn More",
+  aboutTitle:"About Us",
+  aboutTxt:"Chandler (GHC) is building a decentralized ecosystem bridging blockchain & healthcare to fund AI research and charity foundations.",
+  projTitle:"Project Overview",
+  projTxt:"21,000,000 total supply. Community-governed and transparent. Staking, fundraising & AI data platform coming soon.",
+  contactTitle:"Contact Us"
+}
+
+let current="zh";
+const switchBtn=document.getElementById("switchLang");
+switchBtn.onclick=()=>{
+  current=current==="zh"?"en":"zh";
+  switchBtn.textContent=current==="zh"?"EN":"中文";
+  const dict=current==="zh"?zh:en;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    el.innerHTML=dict[el.dataset.i18n]||el.innerHTML;
+  });
+};
+</script>
 </body>
 </html>
