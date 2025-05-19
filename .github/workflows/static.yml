@@ -1,41 +1,46 @@
-name: Deploy to GitHub Pages
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
 
-# 触发条件
-on:
+on: 
+  # Runs on pushes targeting the default branch 
   push:
-    branches:
-      - main  # 只在 main 分支的代码推送时触发
+    branches: ["main"]  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
-# 定义工作流的执行环境
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
+  # Single deploy job since we're just deploying 
   deploy:
-    runs-on: ubuntu-latest  # 使用最新的 Ubuntu 环境
-
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
-    # 检出代码
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    # 设置 Node.js 环境（如果使用 Node.js 构建工具）
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'  # 设置 Node.js 版本
-
-    # 安装依赖
-    - name: Install dependencies
-      run: |
-        npm install  # 如果您使用 npm 管理依赖
-
-    # 构建项目
-    - name: Build the project
-      run: |
-        npm run build  # 根据您的项目构建脚本来构建静态文件
-
-    # 部署到 GitHub Pages
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        branch: gh-pages  # 部署到 gh-pages 分支
-        folder: build  # 您的构建目录，视您的项目而定
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
