@@ -57,7 +57,7 @@
     <a href="#project" class="btn" data-i18n="heroBtn">了解更多</a>
   </section>
 
-  <!-- About -->
+  <!-- 关于我们 -->
   <section id="about">
     <h2 data-i18n="aboutTitle">关于我们</h2>
     <p data-i18n="aboutTxt">
@@ -71,7 +71,7 @@
     </p>
   </section>
 
-  <!-- Project -->
+  <!-- 项目介绍 -->
   <section id="project">
     <h2 data-i18n="projTitle">项目介绍</h2>
     <p data-i18n="projTxt">
@@ -85,7 +85,7 @@
     </ul>
   </section>
 
-  <!-- Contact -->
+  <!-- 联系我们 -->
   <section id="contact">
     <h2 data-i18n="contactTitle">联系我们</h2>
     <p>
@@ -98,8 +98,29 @@
 
   <script>
     /* 简易多语言切换 */
-    const zh = { ... };
-    const en = { ... };
+    const zh = {
+      navHome: "首页", navAbout: "关于我们", navProject: "项目介绍", navContact: "联系我们",
+      heroTitle: "赋能健康的 GHC AI 基金",
+      heroSubtitle: "基于 TRON 网络的 TRC20 代币，为全球健康与疾病预防的 AI 研究提供支持。",
+      heroBtn: "了解更多",
+      aboutTitle: "关于我们",
+      aboutTxt: "Chandler (GHC) 致力于搭建连接区块链与医疗健康的去中心化生态，为 AI 研究与公益基金会提供可持续资金。",
+      projTitle: "项目介绍",
+      projTxt: "代币总供应 21,000,000 枚，团队与社区共同治理，透明公开。未来将推出质押、募捐与 AI 健康数据平台。",
+      contactTitle: "联系我们"
+    }
+
+    const en = {
+      navHome: "Home", navAbout: "About", navProject: "Project", navContact: "Contact",
+      heroTitle: "GHC AI Health Foundation",
+      heroSubtitle: "A TRC20 token on TRON empowering global AI research in health & disease prevention.",
+      heroBtn: "Learn More",
+      aboutTitle: "About Us",
+      aboutTxt: "Chandler (GHC) is building a decentralized ecosystem bridging blockchain & healthcare to fund AI research and charity foundations.",
+      projTitle: "Project Overview",
+      projTxt: "21,000,000 total supply. Community-governed and transparent. Staking, fundraising & AI data platform coming soon.",
+      contactTitle: "Contact Us"
+    }
 
     let current = "zh";
     const switchBtn = document.getElementById("switchLang");
@@ -114,4 +135,3 @@
   </script>
 </body>
 </html>
-
